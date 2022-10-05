@@ -1,0 +1,20 @@
+name: New Feature
+description: File some details about a new feature
+title: '[New Feature]: '
+labels: ['enhancement', 'help wanted']
+body:
+  - type: textarea
+    id: request-message
+    attributes:
+      label: What are you requesting?
+      description: The more detail the better!
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: What platforms will work be required for?
+      multiple: true
+      options:
+        - Server
+        - Web
