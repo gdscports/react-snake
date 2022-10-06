@@ -1,5 +1,5 @@
 # Autogeneated on GitHub & modifications made
-name: 'Analyse Security'
+name: 'Code Security'
 
 on:
   push:

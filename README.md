@@ -1,6 +1,6 @@
 # GDSC Snake
 
-![Code Security Status](https://github.com/gdscports/react-snake/actions/workflows/analyse-security.yml/badge.svg)
+![Code Security Status](https://github.com/gdscports/react-snake/actions/workflows/code-security.yml/badge.svg)
 
 ## Project Mission Statement
 
