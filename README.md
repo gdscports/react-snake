@@ -73,4 +73,5 @@ increasing snake speed)
 
 ## Credits
 
-- Aydin Orhan 
+- Aydin Orhan
+- Jack Travis
