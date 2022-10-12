@@ -17,3 +17,4 @@ jobs:
           fail_on_error: true
           workdir: ./web
           reporter: github-pr-review
+          eslint_flags: '**/*.ts **/*.tsx'
