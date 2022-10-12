@@ -74,3 +74,4 @@ increasing snake speed)
 ## Credits
 
 - Aydin Orhan 
+- Mark Chittenden - https://github.com/mark-chit
