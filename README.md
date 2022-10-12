@@ -1,5 +1,7 @@
 # GDSC Snake
 
+![Code Security Status](https://github.com/gdscports/react-snake/actions/workflows/code-security.yml/badge.svg)
+
 ## Project Mission Statement
 
 The purpose of this project is for the GDSC society to develop
