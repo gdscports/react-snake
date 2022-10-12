@@ -71,3 +71,6 @@ increasing snake speed)
 - Display highscores from database (9)
 - Difficulty selection (7)
 
+## Credits
+
+- Aydin Orhan 
