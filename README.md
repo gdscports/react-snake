@@ -72,5 +72,5 @@ increasing snake speed)
 - Difficulty selection (7)
 
 ## Credits
-
+- Aydin Orhan
 - Abdulla Alsharshani
