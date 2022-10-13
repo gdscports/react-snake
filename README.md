@@ -73,4 +73,4 @@ increasing snake speed)
 
 ## Credits
 
-- Aydin Orhan 
+- Abdulla Alsharshani
