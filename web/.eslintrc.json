@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "plugins": ["react"],
+  "extends": ["portsoc-ts", "plugin:react/recommended"],
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}
