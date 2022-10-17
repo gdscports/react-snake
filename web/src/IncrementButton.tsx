@@ -15,8 +15,7 @@ function IncrementButton(props: ComponentProps) {
             count is {count}
           </button>
       </div>
-    );
-
+  );
 }
 
 export default IncrementButton;
