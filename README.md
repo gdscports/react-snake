@@ -75,3 +75,4 @@ increasing snake speed)
 
 - Abdulla Alsharshani
 - Kane Swartz (JavaRip)
+- Kieran Shaw (JakeIV)
