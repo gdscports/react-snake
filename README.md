@@ -73,6 +73,6 @@ increasing snake speed)
 
 ## Credits
 - Aydin Orhan
-- Abdulla Alsharshani
+- Abdulla Alsharshani (beamdy)
 - Kane Swartz (JavaRip)
 - Kieran Shaw (JakeIV)
