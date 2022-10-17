@@ -74,3 +74,4 @@ increasing snake speed)
 ## Credits
 
 - Abdulla Alsharshani
+- Kane Swartz (JavaRip)
