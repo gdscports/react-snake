@@ -72,7 +72,7 @@ increasing snake speed)
 - Difficulty selection (7)
 
 ## Credits
-
-- Abdulla Alsharshani
+- Aydin Orhan
+- Abdulla Alsharshani (beamdy)
 - Kane Swartz (JavaRip)
 - Kieran Shaw (JakeIV)
