@@ -73,5 +73,8 @@ increasing snake speed)
 
 ## Credits
 
-- Aydin Orhan
 - Jack Travis
+- Aydin Orhan
+- Abdulla Alsharshani (beamdy)
+- Kane Swartz (JavaRip)
+- Kieran Shaw (JakeIV)
