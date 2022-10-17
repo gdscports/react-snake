@@ -1,0 +1,14 @@
+name: Lint Web App
+on: [pull_request]
+jobs:
+  eslint:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-eslint@v1
+        with:
+          fail_on_error: true
+          workdir: ./web
+          reporter: github-pr-review
+          eslint_flags: '**/*.ts **/*.tsx'
