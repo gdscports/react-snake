@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
 type ComponentProps = {
-  incrementBy: number;
+  incrementBy: number,
 }
 
 function IncrementButton(props: ComponentProps) {
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
     return (
       <div>
@@ -15,8 +15,8 @@ function IncrementButton(props: ComponentProps) {
             count is {count}
           </button>
       </div>
-    )
+    );
 
 }
 
-export default IncrementButton
+export default IncrementButton;

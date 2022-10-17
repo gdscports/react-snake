@@ -1,8 +1,7 @@
 import './App.css';
 
 import reactLogo from './assets/react.svg';
-import IncrementButton from './IncrementButton'
-import { useState } from 'react';
+import IncrementButton from './IncrementButton';
 
 function App() {
   return (
