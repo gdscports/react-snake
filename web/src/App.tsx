@@ -11,6 +11,10 @@ function App() {
     return (
       <div>
         <h1>hi</h1>
+        <button onClick={() => setHasStarted(() => true)}>
+          Click me to start the game
+        </button>
+        {hasStarted}
       </div>
     );
   } else {
