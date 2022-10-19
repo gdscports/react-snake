@@ -2,13 +2,8 @@ import './App.css';
 
 import reactLogo from './assets/react.svg';
 import IncrementButton from './IncrementButton';
+import {SnakeEngine} from './SnakeEngine/SnakeEngine';
 
-class SnakeEngine{
-
-  static helloWorld(){
-    console.log("Hello World")
-  }
-}
 SnakeEngine.helloWorld()
 
 
