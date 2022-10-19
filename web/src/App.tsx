@@ -9,7 +9,7 @@ class SnakeEngine{
     console.log("Hello World")
   }
 }
-SnakeEngine.helloWorld()
+SnakeEngine.helloWorld();
 
 
 function App() {
