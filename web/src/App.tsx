@@ -3,11 +3,19 @@ import './App.css';
 import reactLogo from './assets/react.svg';
 import IncrementButton from './IncrementButton';
 
-function helloWorld(){
-  console.log("Hello World")
+class SnakeEngine{
+
+  static helloWorld(){
+
+    function helloWorld(){
+      console.log("Hello World")
+    }
+
+  }
 }
 
-helloWorld()
+SnakeEngine.helloWorld()
+
 
 function App() {
   return (
