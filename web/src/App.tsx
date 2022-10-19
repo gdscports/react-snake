@@ -5,7 +5,7 @@ import IncrementButton from './IncrementButton';
 
 class SnakeEngine{
 
-  static helloWorld(){
+  static helloWorld() {
     console.log('Hello World')
   }
 }
