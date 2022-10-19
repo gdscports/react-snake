@@ -1,7 +1,7 @@
 import './App.css';
 import reactLogo from './assets/react.svg';
 import IncrementButton from './IncrementButton';
-import {SnakeEngine} from './SnakeEngine/SnakeEngine';
+import {SnakeEngine } from './SnakeEngine/SnakeEngine';
 
 SnakeEngine.helloWorld()
 
