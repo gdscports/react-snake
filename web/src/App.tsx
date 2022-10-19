@@ -3,6 +3,12 @@ import './App.css';
 import reactLogo from './assets/react.svg';
 import IncrementButton from './IncrementButton';
 
+function helloWorld(){
+  console.log("Hello World")
+}
+
+helloWorld()
+
 function App() {
   return (
     <div className='App'>
