@@ -73,9 +73,13 @@ increasing snake speed)
 
 ## Credits
 
+
+=======
 - Jack Travis
 - Aydin Orhan
 - Abdulla Alsharshani (beamdy)
 - Kane Swartz (JavaRip)
 - Kieran Shaw (JakeIV)
 - Riley Hardcastle (S4-K1)
+- Mark Chittenden (mark-chit)
+>>>>>>> main
