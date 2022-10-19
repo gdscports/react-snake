@@ -3,7 +3,7 @@ import './App.css';
 import reactLogo from './assets/react.svg';
 import IncrementButton from './IncrementButton';
 
-function helloWorld(){
+function helloWorld() {
   console.log('Hello World')
 }
 
