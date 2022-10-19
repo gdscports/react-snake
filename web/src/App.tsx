@@ -2,6 +2,7 @@ import './App.css';
 
 import reactLogo from './assets/react.svg';
 import IncrementButton from './IncrementButton';
+import CanvasBoard from './components/CanvasBoard';
 
 function App() {
   return (
@@ -18,9 +19,7 @@ function App() {
       <div className="card">
         <IncrementButton incrementBy={1} />
         <IncrementButton incrementBy={2} />
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <CanvasBoard height={200} width={400} />
       </div>
       <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
     </div>
