@@ -20,17 +20,28 @@ export class SnakeEngine {
   }
 
   static model() {
+    const newSnakeHead = SnakeEngine.snake.body[SnakeEngine.snake.length - 1];
+    let x = newSnakeHead.x;
+    let y = newSnakeHead.y;
     switch (SnakeEngine.snake.direction) {
       case 'up':
+        y = y - 1;
         break;
       case 'down':
+        y = y + 1;
         break;
       case 'left':
+        x = x - 1;
         break;
       case 'right':
+        x = x + 1;
         break;
       default:
     }
+    newSnakeHead.y = y;
+    newSnakeHead.x = x;
+    SnakeEngine.snake.body.push(newSnakeHead);
+    SnakeEngine.snake.body.shift();
   }
 
   static controller() {
