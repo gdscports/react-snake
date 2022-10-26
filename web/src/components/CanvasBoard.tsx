@@ -1,11 +1,7 @@
 import styles from './CanvasBoard.module.css';
+import { CanvasBoard } from '../types';
 
-type Props = {
-  height: number,
-  width: number,
-}
-
-const CanvasBoard = ({ height, width }: Props) => {
+const CanvasBoard = ({ height, width }: CanvasBoard) => {
   return (
     <canvas
       className={styles.canvas}
