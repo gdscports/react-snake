@@ -1,7 +1,7 @@
 import styles from './CanvasBoard.module.css';
 import { CanvasBoardTypes } from '../types';
 
-const CanvasBoard = ({ height, width }: CanvasBoardTypes) => {
+function CanvasBoard({ height, width }: CanvasBoardTypes) {
   return (
     <canvas
       className={styles.canvas}
@@ -9,6 +9,6 @@ const CanvasBoard = ({ height, width }: CanvasBoardTypes) => {
       width={width}
     />
   );
-};
+}
 
 export default CanvasBoard;
