@@ -1,5 +1,9 @@
+class Constants {
+  static SnakeSpeed = 2;
+}
+
 export class SnakeEngine {
-  static board = [];
+  board = [];
   static snake = {
     length: 3,
     body: [
@@ -7,11 +11,49 @@ export class SnakeEngine {
       { x: 1, y: 0 },
       { x: 2, y: 0 },
     ],
-
     direction: 'right',
   };
 
   static helloWorld() {
-    console.log('Hello World');
+    const speed = new Constants();
+    console.log(speed);
+  }
+
+  static model() {
+    switch (SnakeEngine.snake.direction) {
+      case 'up':
+        break;
+      case 'down':
+        break;
+      case 'left':
+        break;
+      case 'right':
+        break;
+      default:
+    }
+  }
+
+  static controller() {
+    document.addEventListener('keydown', parseInput);
+    function parseInput(e: { key: string}) {
+      switch (e.key) {
+        case 'ArrowUp':
+          SnakeEngine.snake.direction = 'up';
+          break;
+        case 'w':
+          SnakeEngine.snake.direction = 'up';
+          break;
+        case 'a':
+          SnakeEngine.snake.direction = 'left';
+          break;
+        case 's':
+          SnakeEngine.snake.direction = 'down';
+          break;
+        case 'd':
+          SnakeEngine.snake.direction = 'right';
+          break;
+        default:
+      }
+    }
   }
 }
