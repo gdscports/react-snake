@@ -1,4 +1,4 @@
-export type CanvasBoard = {
+export type CanvasBoardTypes = {
   height: number,
   width: number,
 }
