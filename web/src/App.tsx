@@ -1,23 +1,22 @@
 import './App.css';
 
-import { useState } from 'react';
+import { useState, Dispatch } from 'react';
 import IncrementButton from './IncrementButton';
 import reactLogo from './assets/react.svg';
 
-function App() {
-  const [hasStarted, setHasStarted] = useState(false);
-
-  if (!hasStarted) {
-    return (
+function SplashScreen(props: {setHasStarted: Dispatch<boolean>}) {
+  return (
       <div>
         <h1>Welcome to React Snake UwU</h1>
-        <button onClick={() => setHasStarted(() => true)}>
+        <button onClick={() => props.setHasStarted(true)}>
           Click me to start the game
         </button>
       </div>
     );
-  } else {
-    return (
+}
+
+function SnakeScreen() {
+  return (
       <div className='App'>
         <div>
           <a href='https://vitejs.dev' target='_blank' rel='noreferrer'>
@@ -34,6 +33,15 @@ function App() {
         </div>
       </div>
     );
+}
+
+function App() {
+  const [hasStarted, setHasStarted] = useState(false);
+
+  if (!hasStarted) {
+    return <SplashScreen setHasStarted={setHasStarted} />;
+  } else {
+    return <SnakeScreen />;
   }
 }
 
