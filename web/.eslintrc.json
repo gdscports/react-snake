@@ -1,12 +1,15 @@
 {
-  "root": true,
-  "plugins": ["react"],
-  "extends": ["portsoc-ts", "plugin:react/recommended"],
-  "env": {
-    "browser": true
-  },
-  "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "react/react-in-jsx-scope": "off"
-  }
+	"root": true,
+	"plugins": ["react"],
+	"extends": ["portsoc-ts", "plugin:react/recommended"],
+	"env": {
+		"browser": true
+	},
+	"rules": {
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"@typescript-eslint/indent": "off",
+		"@typescript-eslint/member-delimiter-style": "off",
+		"react/react-in-jsx-scope": "off",
+		"no-tabs": "off"
+	}
 }
