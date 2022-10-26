@@ -1,6 +1,6 @@
 import './App.css';
 
-import { useState, Dispatch } from 'react';
+import { useState } from 'react';
 import SnakeScreen from './components/SnakeScreen';
 import SplashScreen from './components/SplashScreen';
 
