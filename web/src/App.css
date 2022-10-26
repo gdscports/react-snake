@@ -13,16 +13,16 @@
 
 @keyframes logo-spin {
   from {
-    transform: rotate(360deg);
+    transform: rotate(-30deg);
   }
   to {
-    transform: rotate(0deg);
+    transform: rotate(30deg);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .snake {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 2s linear alternate;
   }
 }
 
