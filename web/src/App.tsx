@@ -1,8 +1,8 @@
 import './App.css';
 
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
 import IncrementButton from './IncrementButton';
+import reactLogo from './assets/react.svg';
 
 function App() {
   const [hasStarted, setHasStarted] = useState(false);
