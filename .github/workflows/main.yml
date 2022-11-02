@@ -13,4 +13,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: /home/pi/autoupdater-snake
+        script: |
+        bash /home/pi/autoupdater-snake
+        ls -al
+        echo "$PATH"
