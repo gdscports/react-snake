@@ -1,4 +1,5 @@
 import IncrementButton from '../IncrementButton';
+import CanvasBoard from './CanvasBoard';
 
 function SnakeScreen() {
     return (
@@ -8,6 +9,7 @@ function SnakeScreen() {
           <div className="card">
             <IncrementButton incrementBy={1} />
             <IncrementButton incrementBy={2} />
+            <CanvasBoard height={200} width={400}/>
           </div>
         </div>
       );

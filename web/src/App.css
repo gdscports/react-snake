@@ -13,10 +13,10 @@
 
 @keyframes logo-spin {
   from {
-    transform: rotate(-30deg);
+    transform: rotate(-35deg);
   }
   to {
-    transform: rotate(30deg);
+    transform: rotate(25deg);
   }
 }
 
