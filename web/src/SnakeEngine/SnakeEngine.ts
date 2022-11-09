@@ -3,7 +3,7 @@ class Constants {
 }
 
 export class SnakeEngine {
-  board = [];
+  static board = this.boardGenerator();
   static snake = {
     length: 3,
     body: [
@@ -21,6 +21,9 @@ export class SnakeEngine {
       row += `${'0'.repeat(10)}`;
       board.push(row);
     }
+    this.UpdateBoard(0, 0, board, true);
+    this.UpdateBoard(0, 1, board, true);
+    this.UpdateBoard(0, 2, board, true);
     return board;
   }
 
@@ -37,22 +40,7 @@ export class SnakeEngine {
     console.log(speed);
   }
 
-  static view() {
-    const board = [];
-    const size = 10;
-    let row = '';
-    const x = SnakeEngine.snake.body[this.length].x;
-    const y = SnakeEngine.snake.body[this.length].y;
-    for (let ycord = 0; ycord < size; ycord++) {
-      for (let xcord = 0; xcord < size; xcord++) {
-        if (xcord === x && ycord === y) {
-          row += 'S';
-        } else {
-          row += '0';
-        }
-      }
-      board.push(row);
-    }
+  static view(board: Array<string>) {
     for (let i = 0; i < board.length - 1; i++) {
       console.log(board[i]);
     }
@@ -80,7 +68,9 @@ export class SnakeEngine {
     newSnakeHead.y = y;
     newSnakeHead.x = x;
     SnakeEngine.snake.body.push(newSnakeHead);
-    const oldTail = SnakeEngine.snake.body.shift();
+    this.UpdateBoard(y, x, SnakeEngine.board, true);
+    const oldTail = SnakeEngine.snake.body.shift() as { x: number, y: number };
+    this.UpdateBoard(oldTail.y, oldTail.x, SnakeEngine.board, false);
   }
 
   static controller() {
