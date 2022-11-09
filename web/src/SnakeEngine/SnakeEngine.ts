@@ -96,4 +96,12 @@ export class SnakeEngine {
       }
     }
   }
+
+  static main() {
+    console.log('Get input');
+    console.log('Get next Frame');
+    console.log('Update View');
+    return null;
+  }
 }
+SnakeEngine.main();
