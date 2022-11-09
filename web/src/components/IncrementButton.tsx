@@ -1,4 +1,4 @@
-import { useState, Dispatch } from 'react';
+import { Dispatch } from 'react';
 
 function IncrementButton(props: {count: number, countIncrease: Dispatch<number>, incrementBy: number}) {
 	return (
