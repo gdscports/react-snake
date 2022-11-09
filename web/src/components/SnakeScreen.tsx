@@ -6,10 +6,14 @@ function SnakeScreen() {
         <div className='App'>
           <div className='logo snake'>🐍</div>
           <h1>GDSC Snake</h1>
-          <div className="card">
+          <div className='dualColumns'>
+            <div>
+              <CanvasBoard height={200} width={400}/>
+            </div>
+            <div>
             <IncrementButton incrementBy={1} />
             <IncrementButton incrementBy={2} />
-            <CanvasBoard height={200} width={400}/>
+            </div>
           </div>
         </div>
       );
