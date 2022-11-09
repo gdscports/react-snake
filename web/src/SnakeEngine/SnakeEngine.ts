@@ -28,6 +28,8 @@ export class SnakeEngine {
     const row = board[y];
     const a = row.split('');
     a[x] = 'S';
+    board[y] = a.toString();
+    return board;
   }
 
   static helloWorld() {
