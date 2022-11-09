@@ -14,6 +14,16 @@ export class SnakeEngine {
     direction: 'right',
   };
 
+  static boardGenerator() {
+    const board = [];
+    let row = '';
+    for (let i = 0; i < 10; i++) {
+      row += `${'0'.repeat(10)}`;
+      board.push(row);
+    }
+    return board;
+  }
+
   static helloWorld() {
     const speed = new Constants();
     console.log(speed);
@@ -62,7 +72,7 @@ export class SnakeEngine {
     newSnakeHead.y = y;
     newSnakeHead.x = x;
     SnakeEngine.snake.body.push(newSnakeHead);
-    SnakeEngine.snake.body.shift();
+    const oldTail = SnakeEngine.snake.body.shift();
   }
 
   static controller() {
