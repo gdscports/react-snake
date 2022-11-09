@@ -19,6 +19,27 @@ export class SnakeEngine {
     console.log(speed);
   }
 
+  static view() {
+    const board = [];
+    const size = 10;
+    let row = '';
+    const x = SnakeEngine.snake.body[this.length].x;
+    const y = SnakeEngine.snake.body[this.length].y;
+    for (let ycord = 0; ycord < size; ycord++) {
+      for (let xcord = 0; xcord < size; xcord++) {
+        if (xcord === x && ycord === y) {
+          row += 'S';
+        } else {
+          row += '0';
+        }
+      }
+      board.push(row);
+    }
+    for (let i = 0; i < board.length - 1; i++) {
+      console.log(board[i]);
+    }
+  }
+
   static model() {
     const newSnakeHead = SnakeEngine.snake.body[SnakeEngine.snake.length - 1];
     let x = newSnakeHead.x;
