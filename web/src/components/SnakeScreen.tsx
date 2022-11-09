@@ -1,4 +1,4 @@
-import IncrementButton from '../IncrementButton';
+import IncrementButton from './IncrementButton';
 import CanvasBoard from './CanvasBoard';
 
 function SnakeScreen() {
