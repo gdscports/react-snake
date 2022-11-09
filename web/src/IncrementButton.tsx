@@ -1,16 +1,14 @@
-import { useState } from 'react';
+import { useState, Dispatch } from 'react';
 
 type ComponentProps = {
 	incrementBy: number;
 };
 
-function IncrementButton(props: ComponentProps) {
-	const [count, setCount] = useState(0);
-
+function IncrementButton(props: {countIncrease: Dispatch<number>, props: ComponentProps}) {
 	return (
 		<div>
-			<button onClick={() => setCount(() => count + props.incrementBy)}>
-				This button increments by {props.incrementBy}. count is {count}
+			<button onClick={() => props.countIncrease(props.props.incrementBy)}>
+				This button increments by {props.props.incrementBy}
 			</button>
 		</div>
 	);
