@@ -1,7 +1,6 @@
 import { Dispatch } from 'react';
 
-
-function IncrementButton(props: {countIncrease: Dispatch<number>, incrementBy: number}) {
+function IncrementButton(props: { countIncrease: Dispatch<number>, incrementBy: number}) {
 	return (
 		<div>
 			<button onClick={() => props.countIncrease(props.incrementBy)}>
