@@ -24,6 +24,12 @@ export class SnakeEngine {
     return board;
   }
 
+  static AddToBoard(y: number, x: number, board: Array<string>) {
+    const row = board[y];
+    const a = row.split('');
+    a[x] = 'S';
+  }
+
   static helloWorld() {
     const speed = new Constants();
     console.log(speed);
