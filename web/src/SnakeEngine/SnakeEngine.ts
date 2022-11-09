@@ -24,10 +24,10 @@ export class SnakeEngine {
     return board;
   }
 
-  static AddToBoard(y: number, x: number, board: Array<string>) {
+  static UpdateBoard(y: number, x: number, board: Array<string>, add: boolean) {
     const row = board[y];
     const a = row.split('');
-    a[x] = 'S';
+    add ? a[x] = 'S' : a[x] = '0'; // add if true remove if false
     board[y] = a.toString();
     return board;
   }
