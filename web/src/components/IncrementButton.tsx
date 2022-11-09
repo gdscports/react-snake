@@ -4,7 +4,7 @@ type ComponentProps = {
 	incrementBy: number;
 };
 
-function IncrementButton(props: {countIncrease: Dispatch<number>, props: ComponentProps}) {
+function IncrementButton(props: {countIncrease: Dispatch<number>, incrementBy: number}) {
 	return (
 		<div>
 			<button onClick={() => props.countIncrease(props.props.incrementBy)}>

@@ -1,10 +1,9 @@
 import IncrementButton from './IncrementButton';
 import CanvasBoard from './CanvasBoard';
+import { useState } from 'react';
 
 function SnakeScreen() {
   const [count, setCount] = useState(0);
-
-  setCount(() => count + countIncrease);
 
   return (
     <div className='App'>
@@ -15,8 +14,8 @@ function SnakeScreen() {
           <CanvasBoard height={200} width={400}/>
         </div>
         <div>
-        <IncrementButton incrementBy={1} />
-        <IncrementButton incrementBy={2} />
+        <IncrementButton countIncrease={setCount} incrementBy={1} />
+        <IncrementButton countIncrease={setCount} incrementBy={2} />
         </div>
       </div>
     </div>
