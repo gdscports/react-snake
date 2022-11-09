@@ -1,7 +1,7 @@
 import styles from './CanvasBoard.module.css';
-import { CanvasBoardTypes } from '../types';
+import { CanvasBoardProps } from '../types';
 
-function CanvasBoard({ height, width }: CanvasBoardTypes) {
+function CanvasBoard({ height, width }: CanvasBoardProps) {
   return (
     <canvas
       className={styles.canvas}
