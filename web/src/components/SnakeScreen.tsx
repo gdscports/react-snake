@@ -14,8 +14,9 @@ function SnakeScreen() {
           <CanvasBoard height={200} width={400}/>
         </div>
         <div>
-        <IncrementButton count={count} countIncrease={setCount} incrementBy={1} />
-        <IncrementButton count={count} countIncrease={setCount} incrementBy={2} />
+        <h1>{count}</h1>
+        <IncrementButton count={count} setCount={setCount} incrementBy={1} />
+        <IncrementButton count={count} setCount={setCount} incrementBy={2} />
         </div>
       </div>
     </div>
