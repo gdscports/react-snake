@@ -3,7 +3,6 @@ class Constants {
 }
 
 export class SnakeEngine {
-  static board = this.boardGenerator();
   static gameOver = false
   static snake = {
     length: 3,
@@ -15,24 +14,38 @@ export class SnakeEngine {
     direction: 'right',
   };
 
+  static board = this.boardGenerator();
+
   static boardGenerator() {
-    const board = [];
-    let row = '';
-    for (let i = 0; i < 10; i++) {
-      row += `${'0'.repeat(10)}`;
+    const board: string[] = [];
+    for (let i = 0; i < 10 - 1; i++) {
+      let row = '';
+      for (let j = 0; j < 10 - 1; j++) {
+        row += '0';
+      }
       board.push(row);
     }
-    this.UpdateBoard(0, 0, board, true);
-    this.UpdateBoard(0, 1, board, true);
-    this.UpdateBoard(0, 2, board, true);
+    SnakeEngine.snake.body.forEach(element => {
+      this.UpdateBoard(element.y, element.x, board, true);
+    });
+    // this.UpdateBoard(0, 0, board, true);
+    // this.UpdateBoard(0, 1, board, true);
+    // this.UpdateBoard(0, 2, board, true);
     return board;
   }
 
   static UpdateBoard(y: number, x: number, board: Array<string>, add: boolean) {
     const row = board[y];
+    // console.log('y:');
+    // console.log(y);
     const a = row.split('');
-    add ? a[x] = 'S' : a[x] = '0'; // add if true remove if false
-    board[y] = a.toString();
+    if (add === true) {
+      a[x] = 'S';
+    } else {
+      a[x] = '0';
+    }
+    // add ? a[x] = 'S' : a[x] = '0'; // add if true remove if false
+    board[y] = a.join('');
     return board;
   }
 
@@ -42,6 +55,7 @@ export class SnakeEngine {
   }
 
   static view(board: Array<string>) {
+    SnakeEngine.board = this.boardGenerator();
     for (let i = 0; i < board.length - 1; i++) {
       console.log(board[i]);
     }
@@ -68,10 +82,10 @@ export class SnakeEngine {
     }
     newSnakeHead.y = y;
     newSnakeHead.x = x;
+    SnakeEngine.snake.body.shift();
     SnakeEngine.snake.body.push(newSnakeHead);
-    this.UpdateBoard(y, x, SnakeEngine.board, true);
-    const oldTail = SnakeEngine.snake.body.shift() as { x: number, y: number };
-    this.UpdateBoard(oldTail.y, oldTail.x, SnakeEngine.board, false);
+    // this.UpdateBoard(oldTail.y, oldTail.x, SnakeEngine.board, false);
+    // this.UpdateBoard(y, x, SnakeEngine.board, true);
   }
 
   static controller() {
@@ -101,6 +115,7 @@ export class SnakeEngine {
   static main() {
     console.log('Get input');
     this.controller();
+    // this.newFrame();
 
     const interval = setInterval(this.newFrame, 500);
     if (SnakeEngine.gameOver === true) {
