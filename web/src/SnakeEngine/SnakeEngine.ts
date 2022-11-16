@@ -4,6 +4,7 @@ class Constants {
 
 export class SnakeEngine {
   static board = this.boardGenerator();
+  static gameOver = false
   static snake = {
     length: 3,
     body: [
@@ -99,9 +100,19 @@ export class SnakeEngine {
 
   static main() {
     console.log('Get input');
-    console.log('Get next Frame');
-    console.log('Update View');
+    this.controller();
+
+    const interval = setInterval(this.newFrame, 500);
+    if (SnakeEngine.gameOver === true) {
+      clearInterval(interval);
+    }
+
     return null;
+  }
+
+  static newFrame = () => {
+    this.model();
+    this.view(SnakeEngine.board);
   }
 }
 SnakeEngine.main();
