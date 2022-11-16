@@ -5,7 +5,7 @@ class Constants {
 export class SnakeEngine {
   static gameOver = false
   static snake = {
-    length: 3,
+    // length: 3,
     body: [
       { x: 0, y: 0 },
       { x: 1, y: 0 },
@@ -18,9 +18,9 @@ export class SnakeEngine {
 
   static boardGenerator() {
     const board: string[] = [];
-    for (let i = 0; i < 10 - 1; i++) {
+    for (let i = 0; i < 10; i++) {
       let row = '';
-      for (let j = 0; j < 10 - 1; j++) {
+      for (let j = 0; j < 10; j++) {
         row += '0';
       }
       board.push(row);
@@ -36,8 +36,6 @@ export class SnakeEngine {
 
   static UpdateBoard(y: number, x: number, board: Array<string>, add: boolean) {
     const row = board[y];
-    // console.log('y:');
-    // console.log(y);
     const a = row.split('');
     if (add === true) {
       a[x] = 'S';
@@ -55,14 +53,14 @@ export class SnakeEngine {
   }
 
   static view(board: Array<string>) {
-    SnakeEngine.board = this.boardGenerator();
+    SnakeEngine.board = this.boardGenerator(); // board is generated
     for (let i = 0; i < board.length - 1; i++) {
       console.log(board[i]);
     }
   }
 
   static model() {
-    const newSnakeHead = SnakeEngine.snake.body[SnakeEngine.snake.length - 1];
+    const newSnakeHead = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1]; // change to slice
     let x = newSnakeHead.x;
     let y = newSnakeHead.y;
     switch (SnakeEngine.snake.direction) {
