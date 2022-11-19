@@ -27,6 +27,7 @@ export class SnakeEngine {
     }
     SnakeEngine.snake.body.forEach(element => {
       this.UpdateBoard(element.y, element.x, board, true);
+      console.log('BoardGen x: ', element.x, 'y: ', element.y);
     });
     // this.UpdateBoard(0, 0, board, true);
     // this.UpdateBoard(0, 1, board, true);
@@ -36,6 +37,7 @@ export class SnakeEngine {
 
   static UpdateBoard(y: number, x: number, board: Array<string>, add: boolean) {
     const row = board[y];
+    console.log('Update x: ', x, 'y: ', y);
     const a = row.split('');
     if (add === true) {
       a[x] = 'S';
@@ -60,9 +62,9 @@ export class SnakeEngine {
   }
 
   static model() {
-    const newSnakeHead = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1]; // change to slice
-    let x = newSnakeHead.x;
-    let y = newSnakeHead.y;
+    // const newSnakeHead = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1]; // change to slice
+    let x = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1].x;
+    let y = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1].y;
     switch (SnakeEngine.snake.direction) {
       case 'up':
         y = y - 1;
@@ -78,8 +80,10 @@ export class SnakeEngine {
         break;
       default:
     }
-    newSnakeHead.y = y;
-    newSnakeHead.x = x;
+    const newSnakeHead = { x: x, y: y };
+    // newSnakeHead.y = y;
+    // newSnakeHead.x = x;
+    console.log('Model x; ', x, 'Model y: ', y);
     SnakeEngine.snake.body.shift();
     SnakeEngine.snake.body.push(newSnakeHead);
     // this.UpdateBoard(oldTail.y, oldTail.x, SnakeEngine.board, false);
@@ -114,6 +118,7 @@ export class SnakeEngine {
     console.log('Get input');
     this.controller();
     // this.newFrame();
+    this.view(SnakeEngine.board);
 
     const interval = setInterval(this.newFrame, 500);
     if (SnakeEngine.gameOver === true) {
