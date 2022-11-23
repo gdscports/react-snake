@@ -1,4 +1,6 @@
 export class SnakeEngine {
+  static boardSize = 9;
+
   static main() {
     console.log('New coordinates of the snake are: ');
     for (const cell of SnakeEngine.snake.body) {
@@ -13,8 +15,6 @@ export class SnakeEngine {
         console.log(cell);
       }
   }
-
-  static boardSize = 9;
 
   static snake = {
       body: [
