@@ -14,7 +14,7 @@ export class SnakeEngine {
 
     static controller() {
       document.addEventListener('keydown', parseInput);
-      function parseInput(e: { key: string}) {
+      function parseInput(e: KeyboardEvent) {
         switch (e.key) {
           case 'w':
             SnakeEngine.snake.direction = 'up';
