@@ -1,6 +1,13 @@
 export class SnakeEngine {
-    static helloWorld() {
-        console.log('Hello World');
+    static main() {
+        SnakeEngine.snake.body.forEach(element => {
+            console.log('x:', element.x, ' y:', element.y);
+        });
+        this.model();
+        console.log('New coordinates of the snake are: ');
+        SnakeEngine.snake.body.forEach(element => {
+            console.log('x:', element.x, ' y:', element.y);
+        });
     }
 
     static snake = {
@@ -30,6 +37,7 @@ export class SnakeEngine {
             break;
           default:
         }
+        console.log('Model x; ', x, 'Model y: ', y);
         const newSnakeHead = { x: x, y: y };
         SnakeEngine.snake.body.shift();
         SnakeEngine.snake.body.push(newSnakeHead);

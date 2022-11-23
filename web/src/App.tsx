@@ -7,7 +7,7 @@ import { SnakeEngine } from './SnakeEngine/SnakeEngine';
 
 function App() {
 	const [hasStarted, setHasStarted] = useState(false);
-	SnakeEngine.helloWorld();
+	SnakeEngine.main();
 	if (!hasStarted) {
 		return <SplashScreen setHasStarted={setHasStarted} />;
 	} else {
