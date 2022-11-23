@@ -1,6 +1,17 @@
 export class SnakeEngine {
-    static helloWorld() {
-        console.log('Hello World');
+    static main() {
+      console.log('New coordinates of the snake are: ');
+      for (const cell of SnakeEngine.snake.body) {
+        console.log(cell);
+      }
+
+        SnakeEngine.model();
+
+        console.log('New coordinates of the snake are: ');
+
+        for (const cell of SnakeEngine.snake.body) {
+          console.log(cell);
+        }
     }
 
     static snake = {
@@ -11,6 +22,30 @@ export class SnakeEngine {
         ],
         direction: 'right',
       };
+
+      static model() {
+        let x = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1].x;
+        let y = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1].y;
+        switch (SnakeEngine.snake.direction) {
+          case 'up':
+            y = y - 1;
+            break;
+          case 'down':
+            y = y + 1;
+            break;
+          case 'left':
+            x = x - 1;
+            break;
+          case 'right':
+            x = x + 1;
+            break;
+          default:
+        }
+        console.log('Model x; ', x, 'Model y: ', y);
+        const newSnakeHead = { x: x, y: y };
+        SnakeEngine.snake.body.shift();
+        SnakeEngine.snake.body.push(newSnakeHead);
+      }
 
     static controller() {
       document.addEventListener('keydown', parseInput);
