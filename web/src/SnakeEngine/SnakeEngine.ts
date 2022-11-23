@@ -1,8 +1,4 @@
 export class SnakeEngine {
-    static intro() {
-      console.log('Welcome to Snake');
-    }
-
     static main() {
       console.log('New coordinates of the snake are: ');
       for (const cell of SnakeEngine.snake.body) {

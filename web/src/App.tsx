@@ -5,11 +5,10 @@ import SnakeScreen from './components/SnakeScreen';
 import SplashScreen from './components/SplashScreen';
 import { SnakeEngine } from './SnakeEngine/SnakeEngine';
 
+SnakeEngine.main();
+
 function App() {
 	const [hasStarted, setHasStarted] = useState(false);
-
-	SnakeEngine.intro();
-
 	if (!hasStarted) {
 		return <SplashScreen setHasStarted={setHasStarted} />;
 	} else {
