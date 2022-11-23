@@ -37,7 +37,7 @@ export class SnakeEngine {
 
   static UpdateBoard(y: number, x: number, board: Array<string>, add: boolean) {
     const row = board[y];
-    console.log('Update x: ', x, 'y: ', y);
+    // console.log('Update x: ', x, 'y: ', y);
     const a = row.split('');
     if (add === true) {
       a[x] = 'S';
@@ -55,7 +55,8 @@ export class SnakeEngine {
   }
 
   static view(board: Array<string>) {
-    SnakeEngine.board = this.boardGenerator(); // board is generated
+    SnakeEngine.board = this.boardGenerator();
+    console.clear(); // board is generated
     for (let i = 0; i < board.length - 1; i++) {
       console.log(board[i]);
     }
@@ -68,22 +69,34 @@ export class SnakeEngine {
     switch (SnakeEngine.snake.direction) {
       case 'up':
         y = y - 1;
+        if (y < 0) {
+          y = 9;
+        }
         break;
       case 'down':
         y = y + 1;
+        if (y > 9) {
+          y = 0;
+        }
         break;
       case 'left':
         x = x - 1;
+        if (x < 0) {
+          x = 9;
+        }
         break;
       case 'right':
         x = x + 1;
+        if (x > 9) {
+          x = 0;
+        }
         break;
       default:
     }
     const newSnakeHead = { x: x, y: y };
     // newSnakeHead.y = y;
     // newSnakeHead.x = x;
-    console.log('Model x; ', x, 'Model y: ', y);
+    // console.log('Model x; ', x, 'Model y: ', y);
     SnakeEngine.snake.body.shift();
     SnakeEngine.snake.body.push(newSnakeHead);
     // this.UpdateBoard(oldTail.y, oldTail.x, SnakeEngine.board, false);
@@ -115,7 +128,7 @@ export class SnakeEngine {
   }
 
   static main() {
-    console.log('Get input');
+    // console.log('Get input');
     this.controller();
     // this.newFrame();
     this.view(SnakeEngine.board);
