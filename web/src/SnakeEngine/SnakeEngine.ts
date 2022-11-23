@@ -1,17 +1,13 @@
 export class SnakeEngine {
     static main() {
-      console.log('New coordinates of the snake are: ');
-      for (const cell of SnakeEngine.snake.body) {
-        console.log(cell);
-      }
-
-        SnakeEngine.model();
-
+        SnakeEngine.snake.body.forEach(element => {
+            console.log('x:', element.x, ' y:', element.y);
+        });
+        this.model();
         console.log('New coordinates of the snake are: ');
-
-        for (const cell of SnakeEngine.snake.body) {
-          console.log(cell);
-        }
+        SnakeEngine.snake.body.forEach(element => {
+            console.log('x:', element.x, ' y:', element.y);
+        });
     }
 
     static snake = {
@@ -29,15 +25,27 @@ export class SnakeEngine {
         switch (SnakeEngine.snake.direction) {
           case 'up':
             y = y - 1;
+            if (y < 0) {
+              y = 9;
+            }
             break;
           case 'down':
             y = y + 1;
+            if (y > 9) {
+              y = 0;
+            }
             break;
           case 'left':
             x = x - 1;
+            if (x < 0) {
+              x = 9;
+            }
             break;
           case 'right':
             x = x + 1;
+            if (x > 9) {
+              x = 0;
+            }
             break;
           default:
         }
