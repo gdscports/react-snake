@@ -3,4 +3,3 @@ export class SnakeEngine {
         console.log('Hello World');
     }
 }
-SnakeEngine.helloWorld();
