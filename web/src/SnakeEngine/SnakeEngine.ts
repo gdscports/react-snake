@@ -55,11 +55,13 @@ export class SnakeEngine {
   }
 
   static view(board: Array<string>) {
-    SnakeEngine.board = this.boardGenerator();
-    console.clear(); // board is generated
+    SnakeEngine.board = this.boardGenerator(); // board is generated
+    console.clear();
+    let boardString = '';
     for (let i = 0; i < board.length - 1; i++) {
-      console.log(board[i]);
+      boardString += board[i] + '\n';
     }
+    console.log(boardString);
   }
 
   static model() {
