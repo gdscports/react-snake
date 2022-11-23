@@ -1,13 +1,21 @@
 export class SnakeEngine {
+    static intro() {
+      console.log('Welcome to Snake');
+    }
+
     static main() {
-        SnakeEngine.snake.body.forEach(element => {
-            console.log('x:', element.x, ' y:', element.y);
-        });
-        this.model();
+      console.log('New coordinates of the snake are: ');
+      for (const cell of SnakeEngine.snake.body) {
+        console.log(cell);
+      }
+
+        SnakeEngine.model();
+
         console.log('New coordinates of the snake are: ');
-        SnakeEngine.snake.body.forEach(element => {
-            console.log('x:', element.x, ' y:', element.y);
-        });
+
+        for (const cell of SnakeEngine.snake.body) {
+          console.log(cell);
+        }
     }
 
     static snake = {
