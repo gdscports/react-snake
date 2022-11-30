@@ -4,6 +4,7 @@ class Constants {
 
 export class SnakeEngine {
   static gameOver = false
+  static food = { x: SnakeEngine.randomCoord(), y: SnakeEngine.randomCoord() }
   static snake = {
     // length: 3,
     body: [
@@ -15,6 +16,10 @@ export class SnakeEngine {
   };
 
   static board = this.boardGenerator();
+
+  static randomCoord() {
+    return Math.floor(Math.random() * (9 - 0)) + 0;
+  }
 
   static boardGenerator() {
     const board: string[] = [];
@@ -35,14 +40,14 @@ export class SnakeEngine {
     return board;
   }
 
-  static UpdateBoard(y: number, x: number, board: Array<string>, add: boolean) {
+  static UpdateBoard(y: number, x: number, board: Array<string>, snake: boolean) {
     const row = board[y];
     // console.log('Update x: ', x, 'y: ', y);
     const a = row.split('');
-    if (add === true) {
+    if (snake === true) {
       a[x] = 'S';
     } else {
-      a[x] = '0';
+      a[x] = 'F';
     }
     // add ? a[x] = 'S' : a[x] = '0'; // add if true remove if false
     board[y] = a.join('');
