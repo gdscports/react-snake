@@ -25,6 +25,20 @@ export class SnakeEngine {
       direction: 'right',
     };
 
+    static board = this.boardGenerator();
+
+    static boardGenerator() {
+      const board: string[] = [];
+      for (let i = 0; i < SnakeEngine.boardSize + 1; i++) {
+        let row = '';
+        for (let j = 0; j < SnakeEngine.boardSize + 1; j++) {
+          row += '0';
+        }
+        board.push(row);
+      }
+      return board;
+    }
+
     static model() {
       let x = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1].x;
       let y = SnakeEngine.snake.body[SnakeEngine.snake.body.length - 1].y;
