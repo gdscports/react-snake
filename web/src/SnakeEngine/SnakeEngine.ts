@@ -3,8 +3,9 @@ class Constants {
 }
 
 export class SnakeEngine {
+  static boardSize = 9;
   static gameOver = false
-  static food = { x: SnakeEngine.randomCoord(), y: SnakeEngine.randomCoord() }
+  static food = { x: 0, y: 0 }
   static snake = {
     // length: 3,
     body: [
@@ -18,7 +19,7 @@ export class SnakeEngine {
   static board = this.boardGenerator();
 
   static randomCoord() {
-    return Math.floor(Math.random() * (9 - 0)) + 0;
+    return Math.floor(Math.random() * (SnakeEngine.boardSize + 1));
   }
 
   static boardGenerator() {
@@ -34,6 +35,7 @@ export class SnakeEngine {
       this.UpdateBoard(element.y, element.x, board, true);
       console.log('BoardGen x: ', element.x, 'y: ', element.y);
     });
+    this.UpdateBoard(SnakeEngine.food.y, SnakeEngine.food.x, board, false);
     // this.UpdateBoard(0, 0, board, true);
     // this.UpdateBoard(0, 1, board, true);
     // this.UpdateBoard(0, 2, board, true);
@@ -104,8 +106,10 @@ export class SnakeEngine {
     // newSnakeHead.y = y;
     // newSnakeHead.x = x;
     // console.log('Model x; ', x, 'Model y: ', y);
-    SnakeEngine.snake.body.shift();
     SnakeEngine.snake.body.push(newSnakeHead);
+    if (SnakeEngine.foodEaten() === false) {
+      SnakeEngine.snake.body.shift();
+    }
     // this.UpdateBoard(oldTail.y, oldTail.x, SnakeEngine.board, false);
     // this.UpdateBoard(y, x, SnakeEngine.board, true);
   }
@@ -134,7 +138,32 @@ export class SnakeEngine {
     }
   }
 
+  static foodEaten() {
+    for (const cell of SnakeEngine.snake.body) {
+      if (cell.x === SnakeEngine.food.x && cell.y === SnakeEngine.food.y) {
+        SnakeEngine.randomiseFood();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  static randomiseFood() {
+    let valid = false;
+    while (valid === false) {
+      valid = true;
+      SnakeEngine.food.x = SnakeEngine.randomCoord();
+      SnakeEngine.food.y = SnakeEngine.randomCoord();
+      for (const cell of SnakeEngine.snake.body) {
+        if (cell.x === SnakeEngine.food.x && cell.y === SnakeEngine.food.y) {
+          valid = false;
+        }
+      }
+    }
+  }
+
   static main() {
+    SnakeEngine.randomiseFood();
     // console.log('Get input');
     this.controller();
     // this.newFrame();
