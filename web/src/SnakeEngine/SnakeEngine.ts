@@ -118,19 +118,20 @@ export class SnakeEngine {
     document.addEventListener('keydown', parseInput);
     function parseInput(e: { key: string}) {
       switch (e.key) {
+        case 'w':
         case 'ArrowUp':
           SnakeEngine.snake.direction = 'up';
           break;
-        case 'w':
-          SnakeEngine.snake.direction = 'up';
-          break;
         case 'a':
+        case 'ArrowLeft':
           SnakeEngine.snake.direction = 'left';
           break;
         case 's':
+        case 'ArrowRight':
           SnakeEngine.snake.direction = 'down';
           break;
         case 'd':
+        case 'ArrowDown':
           SnakeEngine.snake.direction = 'right';
           break;
         default:
