@@ -11,6 +11,7 @@ export class SnakeEngine {
     for (const cell of SnakeEngine.snake.body) {
       console.log(cell);
     }
+    SnakeEngine.view(SnakeEngine.board);
   }
 
   static snake = {
