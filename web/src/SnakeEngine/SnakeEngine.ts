@@ -37,6 +37,18 @@ export class SnakeEngine {
       return board;
     }
 
+    static UpdateBoard(y: number, x: number, board: Array<string>, snake: boolean) {
+      const row = board[y];
+      const a = row.split('');
+      if (snake === true) {
+        a[x] = 'S';
+      } else {
+        a[x] = 'F';
+      }
+      board[y] = a.join('');
+      return board;
+    }
+
     static view(board: Array<string>) {
       SnakeEngine.board = this.boardGenerator();
       console.clear();
