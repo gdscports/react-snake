@@ -34,6 +34,11 @@ export class SnakeEngine {
         }
         board.push(row);
       }
+
+      for (const cell of SnakeEngine.snake.body) {
+        this.UpdateBoard(cell.y, cell.x, board, true);
+      }
+
       return board;
     }
 
