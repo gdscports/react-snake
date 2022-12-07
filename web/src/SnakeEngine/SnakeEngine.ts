@@ -118,11 +118,11 @@ export class SnakeEngine {
             SnakeEngine.snake.direction = 'left';
             break;
           case 's':
-          case 'ArrowRight':
+          case 'ArrowDown':
             SnakeEngine.snake.direction = 'down';
             break;
           case 'd':
-          case 'ArrowDown':
+          case 'ArrowRight':
             SnakeEngine.snake.direction = 'right';
             break;
           default:
