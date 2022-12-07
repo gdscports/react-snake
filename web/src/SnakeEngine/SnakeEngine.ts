@@ -34,6 +34,23 @@ export class SnakeEngine {
         }
         board.push(row);
       }
+
+      for (const cell of SnakeEngine.snake.body) {
+        this.UpdateBoard(cell.y, cell.x, board, true);
+      }
+
+      return board;
+    }
+
+    static UpdateBoard(y: number, x: number, board: Array<string>, snake: boolean) {
+      const row = board[y];
+      const a = row.split('');
+      if (snake === true) {
+        a[x] = 'S';
+      } else {
+        a[x] = 'F';
+      }
+      board[y] = a.join('');
       return board;
     }
 
