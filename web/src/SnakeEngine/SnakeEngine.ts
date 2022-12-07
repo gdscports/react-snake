@@ -2,15 +2,19 @@ export class SnakeEngine {
   static boardSize = 9;
 
   static main() {
-    console.log('New coordinates of the snake are: ');
-    for (const cell of SnakeEngine.snake.body) {
-      console.log(cell);
+    SnakeEngine.controller();
+    SnakeEngine.view(SnakeEngine.board);
+
+    const interval = setInterval(this.newFrame, 500);
+    if (SnakeEngine.gameOver === true) {
+      clearInterval(interval);
     }
+
+    return null;
+  }
+
+  static newFrame = () => {
     SnakeEngine.model();
-    console.log('New coordinates of the snake are: ');
-    for (const cell of SnakeEngine.snake.body) {
-      console.log(cell);
-    }
     SnakeEngine.view(SnakeEngine.board);
   }
 
@@ -24,6 +28,7 @@ export class SnakeEngine {
     };
 
     static board = this.boardGenerator();
+    static gameOver = false;
 
     static boardGenerator() {
       const board: string[] = [];
