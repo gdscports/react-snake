@@ -6,14 +6,12 @@ export class SnakeEngine {
     for (const cell of SnakeEngine.snake.body) {
       console.log(cell);
     }
-
-      SnakeEngine.model();
-
-      console.log('New coordinates of the snake are: ');
-
-      for (const cell of SnakeEngine.snake.body) {
-        console.log(cell);
-      }
+    SnakeEngine.model();
+    console.log('New coordinates of the snake are: ');
+    for (const cell of SnakeEngine.snake.body) {
+      console.log(cell);
+    }
+    SnakeEngine.view(SnakeEngine.board);
   }
 
   static snake = {
@@ -37,6 +35,16 @@ export class SnakeEngine {
         board.push(row);
       }
       return board;
+    }
+
+    static view(board: Array<string>) {
+      SnakeEngine.board = this.boardGenerator();
+      console.clear();
+      let boardString = '';
+      for (let i = 0; i < board.length - 1; i++) {
+        boardString += board[i] + '\n';
+      }
+      console.log(boardString);
     }
 
     static model() {
