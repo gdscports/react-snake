@@ -1,15 +1,13 @@
 export class SnakeEngine {
   static boardSize = 9;
+  static interval: NodeJS.Timer
 
   static main() {
     SnakeEngine.randomiseFood();
     SnakeEngine.controller();
     SnakeEngine.view(SnakeEngine.board);
 
-    const interval = setInterval(this.newFrame, 500);
-    if (SnakeEngine.gameOver === true) {
-      clearInterval(interval);
-    }
+    SnakeEngine.interval = setInterval(this.newFrame, 500);
 
     return null;
   }
@@ -32,6 +30,14 @@ export class SnakeEngine {
     static board = this.boardGenerator();
     static gameOver = false;
 
+    static collision(x: number, y: number) {
+      for (const cell of SnakeEngine.snake.body) {
+        if (cell.x === x && cell.y === y) {
+          return true;
+        }
+      }
+    return false;
+    }
 
     static foodEaten() {
       for (const cell of SnakeEngine.snake.body) {
@@ -66,7 +72,7 @@ export class SnakeEngine {
       for (let i = 0; i < SnakeEngine.boardSize + 1; i++) {
         let row = '';
         for (let j = 0; j < SnakeEngine.boardSize + 1; j++) {
-          row += '0';
+          row += '-';
         }
         board.push(row);
       }
@@ -132,6 +138,10 @@ export class SnakeEngine {
         default:
       }
       const newSnakeHead = { x: x, y: y };
+      if (SnakeEngine.collision(x, y) === true) {
+        SnakeEngine.gameOver = true;
+        clearInterval(SnakeEngine.interval);
+      }
       SnakeEngine.snake.body.push(newSnakeHead);
       if (SnakeEngine.foodEaten() === false) {
         SnakeEngine.snake.body.shift();
