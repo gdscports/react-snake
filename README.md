@@ -73,6 +73,7 @@ increasing snake speed)
 
 ## Credits
 
+- Sava Opikovs
 - Jack Travis
 - Aydin Orhan
 - Abdulla Alsharshani (beamdy)
