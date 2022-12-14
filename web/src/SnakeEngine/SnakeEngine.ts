@@ -27,9 +27,10 @@ export class SnakeEngine {
       direction: 'right',
     };
 
+    static food = { x: 0, y: 0 }
     static board = this.boardGenerator();
     static gameOver = false;
-    static food = { x: 0, y: 0 }
+
 
     static foodEaten() {
       for (const cell of SnakeEngine.snake.body) {
