@@ -29,6 +29,35 @@ export class SnakeEngine {
 
     static board = this.boardGenerator();
     static gameOver = false;
+    static food = { x: 0, y: 0 }
+
+    static foodEaten() {
+      for (const cell of SnakeEngine.snake.body) {
+        if (cell.x === SnakeEngine.food.x && cell.y === SnakeEngine.food.y) {
+          SnakeEngine.randomiseFood();
+          return true;
+        }
+      }
+      return false;
+    }
+
+    static randomiseFood() {
+      let valid = false;
+      while (valid === false) {
+        valid = true;
+        SnakeEngine.food.x = SnakeEngine.randomCoord();
+        SnakeEngine.food.y = SnakeEngine.randomCoord();
+        for (const cell of SnakeEngine.snake.body) {
+          if (cell.x === SnakeEngine.food.x && cell.y === SnakeEngine.food.y) {
+            valid = false;
+          }
+        }
+      }
+    }
+
+  static randomCoord() {
+      return Math.floor(Math.random() * (SnakeEngine.boardSize + 1));
+    }
 
     static boardGenerator() {
       const board: string[] = [];
@@ -44,6 +73,7 @@ export class SnakeEngine {
         this.UpdateBoard(cell.y, cell.x, board, true);
       }
 
+      SnakeEngine.UpdateBoard(SnakeEngine.food.y, SnakeEngine.food.x, board, false);
       return board;
     }
 
@@ -99,10 +129,11 @@ export class SnakeEngine {
           break;
         default:
       }
-      console.log('Model x; ', x, 'Model y: ', y);
       const newSnakeHead = { x: x, y: y };
-      SnakeEngine.snake.body.shift();
       SnakeEngine.snake.body.push(newSnakeHead);
+      if (SnakeEngine.foodEaten() === false) {
+        SnakeEngine.snake.body.shift();
+      }
     }
 
     static controller() {
