@@ -2,6 +2,7 @@ export class SnakeEngine {
   static boardSize = 9;
 
   static main() {
+    SnakeEngine.randomiseFood();
     SnakeEngine.controller();
     SnakeEngine.view(SnakeEngine.board);
 
@@ -94,7 +95,7 @@ export class SnakeEngine {
       SnakeEngine.board = this.boardGenerator();
       console.clear();
       let boardString = '';
-      for (let i = 0; i < board.length - 1; i++) {
+      for (let i = 0; i < board.length; i++) {
         boardString += board[i] + '\n';
       }
       console.log(boardString);
