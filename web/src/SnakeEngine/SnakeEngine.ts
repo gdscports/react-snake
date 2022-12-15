@@ -99,6 +99,25 @@ export class SnakeEngine {
         boardString += board[i] + '\n';
       }
       console.log(boardString);
+
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+
+      // 1)Getting the board and loooping throguh an Array of the board and drawing the board depending
+      //  2)
+      for (let i = 0; i < board.length; i++) {
+        const boardline = SnakeEngine.board[i].split('');
+        for (let j = 0; j < board.length; j++) {
+          if (boardline[j] === 's') {
+            ctx.fillStyle = 'lime';
+          } else if (boardline[j] === 'f') {
+            ctx.fillStyle = 'red';
+          } else {
+            ctx.fillStyle = 'black';
+          }
+          ctx.fillRect(0 + j, 0 + i, this.boardSize, this.boardSize);
+        }
+      }
     }
 
     static model() {
