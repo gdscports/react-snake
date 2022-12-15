@@ -100,8 +100,9 @@ export class SnakeEngine {
       }
       console.log(boardString);
 
-      const canvas = document.querySelector('canvas');
+      const canvas = document.querySelector('canvas') as HTMLCanvasElement;
       const ctx = canvas.getContext('2d');
+      if (ctx === null) throw new Error();
 
       // 1)Getting the board and loooping throguh an Array of the board and drawing the board depending
       //  2)
