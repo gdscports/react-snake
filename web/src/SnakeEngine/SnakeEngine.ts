@@ -108,7 +108,6 @@ export class SnakeEngine {
 
       // 1)Getting the board and loooping throguh an Array of the board and drawing the board depending
       //  2)
-      const cm = SnakeEngine.canvasM;
       const square = 10 * 2;
       for (let i = 0; i < board.length; i++) {
         const boardline = SnakeEngine.board[i].split('');
