@@ -109,11 +109,16 @@ export class SnakeEngine {
       // 1)Getting the board and loooping throguh an Array of the board and drawing the board depending
       //  2)
       const square = 10 * 2;
+      const snakeLength = SnakeEngine.snake.body.length;
       for (let i = 0; i < board.length; i++) {
         const boardline = SnakeEngine.board[i].split('');
         for (let j = 0; j < board.length; j++) {
           if (boardline[j] === 'S') {
-            ctx.fillStyle = 'lime';
+            if (i === SnakeEngine.snake.body[snakeLength - 1].y && j === SnakeEngine.snake.body[snakeLength - 1].x) {
+              ctx.fillStyle = 'green';
+            } else {
+              ctx.fillStyle = 'lime';
+            }
           } else if (boardline[j] === 'F') {
             ctx.fillStyle = 'red';
           } else {
