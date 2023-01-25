@@ -24,17 +24,13 @@ be happy to help you through the process, the first time is the hardest then it'
 
 ## Specification
 
-1. Line (snake) displayed on grid that moves in a direction that can be controlled by a
-user with the wasd keys
-2. Food items randomly appear on the map, there will always be one food item on the map
-at any time
-3. Upon colliding with a food item the line will get longer and the food item will
-be removed
+1. Line (snake) displayed on grid that moves in a direction that can be controlled by a user with the wasd keys
+2. Food items randomly appear on the map, there will always be one food item on the map at any time
+3. Upon colliding with a food item the line will get longer and the food item will be removed
 4. The line colliding with food increases a score by +1
 5. If line moves off the map it will wrap around to the other side
 6. If line collides with self the game ends
-7. Selectable difficulty mode (increased difficulty could include removing wrapping &
-increasing snake speed)
+7. Selectable difficulty mode (increased difficulty could include removing wrapping & increasing snake speed)
 8. A splash screen introducing the user to the game
 9. A highscore bored (with scores stored in a database?)
 10. User can submit score and name upon dying
@@ -81,3 +77,4 @@ increasing snake speed)
 - Kieran Shaw (JakeIV)
 - Riley Hardcastle (S4-K1)
 - Mark Chittenden (mark-chit)
+- Jonas Oppong (Jonas-oppong)
