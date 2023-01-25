@@ -184,19 +184,27 @@ export class SnakeEngine {
         switch (e.key) {
           case 'w':
           case 'ArrowUp':
-            SnakeEngine.snake.direction = 'up';
+            if (SnakeEngine.snake.direction !== 'down') {
+              SnakeEngine.snake.direction = 'up';
+            }
             break;
           case 'a':
           case 'ArrowLeft':
-            SnakeEngine.snake.direction = 'left';
+            if (SnakeEngine.snake.direction !== 'right') {
+              SnakeEngine.snake.direction = 'left';
+            }
             break;
           case 's':
           case 'ArrowDown':
-            SnakeEngine.snake.direction = 'down';
+            if (SnakeEngine.snake.direction !== 'up') {
+              SnakeEngine.snake.direction = 'down';
+            }
             break;
           case 'd':
           case 'ArrowRight':
-            SnakeEngine.snake.direction = 'right';
+            if (SnakeEngine.snake.direction !== 'left') {
+              SnakeEngine.snake.direction = 'right';
+            }
             break;
           default:
         }
