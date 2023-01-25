@@ -1,5 +1,6 @@
 export class SnakeEngine {
-  static boardSize = 9;
+  static boardSizeY = 9;
+  static boardSizeX = SnakeEngine.boardSizeY + 10;
   static interval: NodeJS.Timer
   static canvasM = 20;
 
@@ -49,8 +50,8 @@ export class SnakeEngine {
       let valid = false;
       while (valid === false) {
         valid = true;
-        SnakeEngine.food.x = SnakeEngine.randomCoord();
-        SnakeEngine.food.y = SnakeEngine.randomCoord();
+        SnakeEngine.food.x = SnakeEngine.randomCoord(SnakeEngine.boardSizeX);
+        SnakeEngine.food.y = SnakeEngine.randomCoord(SnakeEngine.boardSizeY);
         for (const cell of SnakeEngine.snake.body) {
           if (cell.x === SnakeEngine.food.x && cell.y === SnakeEngine.food.y) {
             valid = false;
@@ -59,16 +60,16 @@ export class SnakeEngine {
       }
     }
 
-  static randomCoord() {
-      return Math.floor(Math.random() * (SnakeEngine.boardSize + 1));
+  static randomCoord(size: number) {
+      return Math.floor(Math.random() * (size + 1));
     }
 
     static boardGenerator() {
       const board: string[] = [];
-      for (let i = 0; i < SnakeEngine.boardSize + 1; i++) {
+      for (let i = 0; i < SnakeEngine.boardSizeY + 1; i++) {
         let row = '';
-        for (let j = 0; j < SnakeEngine.boardSize + 1; j++) {
-          row += '0';
+        for (let j = 0; j < SnakeEngine.boardSizeX + 1; j++) {
+          row += '-';
         }
         board.push(row);
       }
@@ -113,7 +114,7 @@ export class SnakeEngine {
       const snakeLength = SnakeEngine.snake.body.length;
       for (let i = 0; i < board.length; i++) {
         const boardline = SnakeEngine.board[i].split('');
-        for (let j = 0; j < board.length + 10; j++) {
+        for (let j = 0; j < boardline.length; j++) {
           if (boardline[j] === 'S') {
             if (i === SnakeEngine.snake.body[snakeLength - 1].y && j === SnakeEngine.snake.body[snakeLength - 1].x) {
               ctx.fillStyle = 'green';
@@ -137,24 +138,24 @@ export class SnakeEngine {
         case 'up':
           y = y - 1;
           if (y < 0) {
-            y = SnakeEngine.boardSize;
+            y = SnakeEngine.boardSizeY;
           }
           break;
         case 'down':
           y = y + 1;
-          if (y > SnakeEngine.boardSize) {
+          if (y > SnakeEngine.boardSizeY) {
             y = 0;
           }
           break;
         case 'left':
           x = x - 1;
           if (x < 0) {
-            x = SnakeEngine.boardSize;
+            x = SnakeEngine.boardSizeX;
           }
           break;
         case 'right':
           x = x + 1;
-          if (x > SnakeEngine.boardSize) {
+          if (x > SnakeEngine.boardSizeX) {
             x = 0;
           }
           break;
