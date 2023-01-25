@@ -1,5 +1,6 @@
 export class SnakeEngine {
   static boardSize = 9;
+  static interval: NodeJS.Timer
   static canvasM = 20;
 
   static main() {
