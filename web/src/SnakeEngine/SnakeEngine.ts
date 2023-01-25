@@ -138,14 +138,15 @@ export class SnakeEngine {
         default:
       }
       const newSnakeHead = { x: x, y: y };
-      if (SnakeEngine.collision(x, y) === true) {
-        SnakeEngine.gameOver = true;
-        clearInterval(SnakeEngine.interval);
-      }
-      SnakeEngine.snake.body.push(newSnakeHead);
       if (SnakeEngine.foodEaten() === false) {
         SnakeEngine.snake.body.shift();
       }
+      if (SnakeEngine.collision(x, y) === true) {
+        SnakeEngine.gameOver = true;
+        SnakeEngine.snake.body.push(newSnakeHead);
+        clearInterval(SnakeEngine.interval);
+      }
+      SnakeEngine.snake.body.push(newSnakeHead);
     }
 
     static controller() {
