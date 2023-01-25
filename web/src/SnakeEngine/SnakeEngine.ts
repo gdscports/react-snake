@@ -1,6 +1,8 @@
 export class SnakeEngine {
-  static boardSize = 9;
+  static boardSizeY = 9;
+  static boardSizeX = SnakeEngine.boardSizeY + 10;
   static interval: NodeJS.Timer
+  static canvasM = 20;
 
   static main() {
     SnakeEngine.randomiseFood();
@@ -53,8 +55,8 @@ export class SnakeEngine {
       let valid = false;
       while (valid === false) {
         valid = true;
-        SnakeEngine.food.x = SnakeEngine.randomCoord();
-        SnakeEngine.food.y = SnakeEngine.randomCoord();
+        SnakeEngine.food.x = SnakeEngine.randomCoord(SnakeEngine.boardSizeX);
+        SnakeEngine.food.y = SnakeEngine.randomCoord(SnakeEngine.boardSizeY);
         for (const cell of SnakeEngine.snake.body) {
           if (cell.x === SnakeEngine.food.x && cell.y === SnakeEngine.food.y) {
             valid = false;
@@ -63,25 +65,25 @@ export class SnakeEngine {
       }
     }
 
-  static randomCoord() {
-      return Math.floor(Math.random() * (SnakeEngine.boardSize + 1));
+  static randomCoord(size: number) {
+      return Math.floor(Math.random() * (size + 1));
     }
 
     static boardGenerator() {
       const board: string[] = [];
-      for (let i = 0; i < SnakeEngine.boardSize + 1; i++) {
+      for (let i = 0; i < SnakeEngine.boardSizeY + 1; i++) {
         let row = '';
-        for (let j = 0; j < SnakeEngine.boardSize + 1; j++) {
+        for (let j = 0; j < SnakeEngine.boardSizeX + 1; j++) {
           row += '-';
         }
         board.push(row);
       }
 
+      SnakeEngine.UpdateBoard(SnakeEngine.food.y, SnakeEngine.food.x, board, false);
+
       for (const cell of SnakeEngine.snake.body) {
         this.UpdateBoard(cell.y, cell.x, board, true);
       }
-
-      SnakeEngine.UpdateBoard(SnakeEngine.food.y, SnakeEngine.food.x, board, false);
       return board;
     }
 
@@ -105,6 +107,33 @@ export class SnakeEngine {
         boardString += board[i] + '\n';
       }
       console.log(boardString);
+
+      const canvas = document.querySelector('canvas') as HTMLCanvasElement;
+      if (canvas == null) return;
+      const ctx = canvas.getContext('2d');
+      if (ctx === null) return;
+
+      // 1)Getting the board and loooping throguh an Array of the board and drawing the board depending
+      //  2)
+      const square = 10 * 2;
+      const snakeLength = SnakeEngine.snake.body.length;
+      for (let i = 0; i < board.length; i++) {
+        const boardline = SnakeEngine.board[i].split('');
+        for (let j = 0; j < boardline.length; j++) {
+          if (boardline[j] === 'S') {
+            if (i === SnakeEngine.snake.body[snakeLength - 1].y && j === SnakeEngine.snake.body[snakeLength - 1].x) {
+              ctx.fillStyle = 'green';
+            } else {
+              ctx.fillStyle = 'lime';
+            }
+          } else if (boardline[j] === 'F') {
+            ctx.fillStyle = 'red';
+          } else {
+            ctx.fillStyle = 'black';
+          }
+          ctx.fillRect(0 + (j * square), 0 + (i * square), square, square); // i = y , j=x
+        }
+      }
     }
 
     static model() {
@@ -114,24 +143,24 @@ export class SnakeEngine {
         case 'up':
           y = y - 1;
           if (y < 0) {
-            y = SnakeEngine.boardSize;
+            y = SnakeEngine.boardSizeY;
           }
           break;
         case 'down':
           y = y + 1;
-          if (y > SnakeEngine.boardSize) {
+          if (y > SnakeEngine.boardSizeY) {
             y = 0;
           }
           break;
         case 'left':
           x = x - 1;
           if (x < 0) {
-            x = SnakeEngine.boardSize;
+            x = SnakeEngine.boardSizeX;
           }
           break;
         case 'right':
           x = x + 1;
-          if (x > SnakeEngine.boardSize) {
+          if (x > SnakeEngine.boardSizeX) {
             x = 0;
           }
           break;
@@ -155,19 +184,27 @@ export class SnakeEngine {
         switch (e.key) {
           case 'w':
           case 'ArrowUp':
-            SnakeEngine.snake.direction = 'up';
+            if (SnakeEngine.snake.direction !== 'down') {
+              SnakeEngine.snake.direction = 'up';
+            }
             break;
           case 'a':
           case 'ArrowLeft':
-            SnakeEngine.snake.direction = 'left';
+            if (SnakeEngine.snake.direction !== 'right') {
+              SnakeEngine.snake.direction = 'left';
+            }
             break;
           case 's':
           case 'ArrowDown':
-            SnakeEngine.snake.direction = 'down';
+            if (SnakeEngine.snake.direction !== 'up') {
+              SnakeEngine.snake.direction = 'down';
+            }
             break;
           case 'd':
           case 'ArrowRight':
-            SnakeEngine.snake.direction = 'right';
+            if (SnakeEngine.snake.direction !== 'left') {
+              SnakeEngine.snake.direction = 'right';
+            }
             break;
           default:
         }
