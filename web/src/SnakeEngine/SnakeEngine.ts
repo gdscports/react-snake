@@ -112,7 +112,7 @@ export class SnakeEngine {
       const snakeLength = SnakeEngine.snake.body.length;
       for (let i = 0; i < board.length; i++) {
         const boardline = SnakeEngine.board[i].split('');
-        for (let j = 0; j < board.length; j++) {
+        for (let j = 0; j < board.length + 10; j++) {
           if (boardline[j] === 'S') {
             if (i === SnakeEngine.snake.body[snakeLength - 1].y && j === SnakeEngine.snake.body[snakeLength - 1].x) {
               ctx.fillStyle = 'green';
@@ -124,7 +124,7 @@ export class SnakeEngine {
           } else {
             ctx.fillStyle = 'black';
           }
-          ctx.fillRect(0 + (j * square), 0 + (i * square), square, square);
+          ctx.fillRect(0 + (j * square), 0 + (i * square), square, square); // i = y , j=x
         }
       }
     }
