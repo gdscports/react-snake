@@ -79,11 +79,11 @@ export class SnakeEngine {
         board.push(row);
       }
 
+      SnakeEngine.UpdateBoard(SnakeEngine.food.y, SnakeEngine.food.x, board, false);
+
       for (const cell of SnakeEngine.snake.body) {
         this.UpdateBoard(cell.y, cell.x, board, true);
       }
-
-      SnakeEngine.UpdateBoard(SnakeEngine.food.y, SnakeEngine.food.x, board, false);
       return board;
     }
 
