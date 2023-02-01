@@ -3,6 +3,7 @@ export class SnakeEngine {
   static boardSizeX = SnakeEngine.boardSizeY + 10;
   static interval: NodeJS.Timer
   static canvasM = 20;
+  static score = 0;
 
   static main() {
     SnakeEngine.randomiseFood();
@@ -45,6 +46,9 @@ export class SnakeEngine {
       for (const cell of SnakeEngine.snake.body) {
         if (cell.x === SnakeEngine.food.x && cell.y === SnakeEngine.food.y) {
           SnakeEngine.randomiseFood();
+          SnakeEngine.score = SnakeEngine.score + 1;
+          const scorehtml = `Score : ${SnakeEngine.score}`;
+          document.getElementsByClassName('score')[0].innerHTML = scorehtml;
           return true;
         }
       }
